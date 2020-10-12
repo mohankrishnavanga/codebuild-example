@@ -7,9 +7,6 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - echo Check if docker daemon is running
-      - service docker status
-      - service docker restart
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - REPOSITORY_URI=${REGISTRY_URL}
